@@ -26,27 +26,22 @@ function App() {
         }
     };
 
-    // Use effect to fetch data when the date changes
     useEffect(() => {
         fetchApodData(date);
     }, [date]);
 
     return (
         <div>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
                 <div>
-                    <h1>{data.title}</h1>
-                    {data.media_type === 'image' ? (
-                        <img src={data.url} alt={data.title} style={{ width: '100%', height: 'auto' }} />
-                    ) : (
-                        <iframe src={data.url} title={data.title} style={{ width: '100%', height: 'auto' }} />
-                    )}
-                    <p>{data.explanation}</p>
+                <p className={`${loading? 'show' : 'hidden'}`}>Loading</p>
+                <img src={data.url} alt={data.title} style={{ width: '100%', height: 'auto' }} />
+                <h1>{data.title}</h1>
+                <input type="date" value={date} onChange={handleDateChange} />
+                
+                <button>For furhur info</button>
                 </div>
-            )}
-            <input type="date" value={date} onChange={handleDateChange} />
+            
+            
         </div>
     );
 }
