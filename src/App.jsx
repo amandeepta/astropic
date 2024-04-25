@@ -1,48 +1,23 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
+import Front from "./components/Front";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Info from "./components/Info";
+import { ApodProvider } from "./components/ApodContext";
 function App() {
-    // Initialize the date state variable with today's date in 'YYYY-MM-DD' format
-    const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(true);
-    const apiKey = 'hVfDJaFp8bFG5ZrFTYiGLyfZFAIYcd3Ubc4IRlBU'; // Your API key
-
-    // Handler function to handle date input changes
-    function handleDateChange(e) {
-        setDate(e.target.value);
-    }
-
-    // Function to fetch APOD data for a specific date
-    const fetchApodData = async (date) => {
-        setLoading(true);
-        try {
-            const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`);
-            setData(response.data);
-        } catch (error) {
-            console.error('Error fetching the APOD data:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchApodData(date);
-    }, [date]);
 
     return (
-        <div>
-                <div>
-                <p className={`${loading? 'show' : 'hidden'}`}>Loading</p>
-                <img src={data.url} alt={data.title} style={{ width: '100%', height: 'auto' }} />
-                <h1>{data.title}</h1>
-                <input type="date" value={date} onChange={handleDateChange} />
-                
-                <button>For furhur info</button>
+        <ApodProvider>
+            <Router>
+                <div className="w-[100vw] h-[100vh] p-10 bg-black flex justify-center max-md:items-center overflow-x-hidden">
+                    <Routes>
+                    <Route path="/" element={<Front/>} />
+                    <Route path = "/info" element = {<Info/>} />
+                    </Routes>
+            
                 </div>
-            
-            
-        </div>
+            </Router>
+        </ApodProvider>
+        
+        
     );
 }
 
