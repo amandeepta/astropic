@@ -7,7 +7,8 @@ function App() {
     return (
         <ApodProvider>
             <Router>
-                <div className="w-[100vw] h-[100vh] p-10 bg-black flex justify-center max-md:items-center overflow-x-hidden">
+            <div className="w-screen h-screen overflow-y-auto p-10 bg-gradient-to-br from-gray-900 to-black 
+            flex justify-center max-md:items-center overflow-x-hidden max-md:p-3">
                     <Routes>
                     <Route path="/" element={<Front/>} />
                     <Route path = "/info" element = {<Info/>} />
