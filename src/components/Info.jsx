@@ -8,15 +8,15 @@ function Info() {
 
     return (
         <div className="p-8 bg-gradient-to-br from-gray-800 to-black rounded-lg shadow-lg 
-        flex flex-col space-y-10 ">
+        flex flex-col space-y-10 w-auto h-screen overflow-y-auto">
             {/* Back link */}
-            <div className="flex items-center w-full h-auto">
-                <Link to="/" className="flex items-center p-2 bg-indigo-600 text-white rounded-lg
-                 hover:bg-indigo-700 transition duration-300 hover:scale-105">
-                    <HiOutlineArrowNarrowLeft className="w-6 h-6" />
-                    <span className="ml-2">Back</span>
-                </Link>
-            </div>
+                    <Link to="/" className="flex w-max h-auto p-2 bg-indigo-600 text-white rounded-lg
+                    hover:bg-indigo-700 transition duration-300 hover:scale-105">
+                        <HiOutlineArrowNarrowLeft className="w-6 h-6" />
+                        <span className="ml-2">Back</span>
+                    </Link>
+              
+                
 
             {/* APOD content */}
             {data ? (
@@ -31,14 +31,14 @@ function Info() {
                             />
                         )}
                         {data?.title && (
-                            <h2 className="text-2xl font-bold text-white mt-4 transition duration-300">{data.title}</h2>
+                            <h2 className="text-xl font-bold text-gray-400 mt-4 transition duration-300">{data.title}</h2>
                         )}
                     </div>
 
                     {/* Explanation */}
                     <div className="lg:w-1/2 mt-4 lg:mt-0">
                         {data?.explanation && (
-                            <p className="text-lg text-gray-300 leading-relaxed transition duration-300">{data.explanation}</p>
+                            <p className="text-lg text-gray-400 leading-relaxed transition duration-300">{data.explanation}</p>
                         )}
                     </div>
                 </div>

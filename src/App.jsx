@@ -7,14 +7,13 @@ function App() {
     return (
         <ApodProvider>
             <Router>
-            <div className="w-screen h-screen overflow-y-auto p-10 bg-gradient-to-br from-gray-900 to-black 
-            flex justify-center max-md:items-center overflow-x-hidden max-md:p-3">
+            <div className="flex flex-col justify-center items-center w-screen 
+            h-screen bg-black overflow-hidden">
                     <Routes>
                     <Route path="/" element={<Front/>} />
                     <Route path = "/info" element = {<Info/>} />
                     </Routes>
-            
-                </div>
+            </div>
             </Router>
         </ApodProvider>
         
