@@ -8,7 +8,7 @@ function Info() {
 
     return (
         <div className="p-8 bg-gradient-to-br from-gray-800 to-black rounded-lg shadow-lg 
-        flex flex-col space-y-10 w-auto h-screen overflow-y-auto">
+        flex flex-col space-y-10 w-auto h-max overflow-y-auto">
             {/* Back link */}
                     <Link to="/" className="flex w-max h-auto p-2 bg-indigo-600 text-white rounded-lg
                     hover:bg-indigo-700 transition duration-300 hover:scale-105">
