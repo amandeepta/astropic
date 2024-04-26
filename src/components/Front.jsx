@@ -11,8 +11,10 @@ function Front() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center space-y-6 p-6 bg-gradient-to-br
-         from-gray-800 to-black rounded-lg shadow-lg w-auto h-max overflow-y-auto max-md:p-3">
+        <div className="flex flex-col justify-center items-center w-screen 
+            h-screen bg-black overflow-hidden">
+            <div className="flex flex-col items-center justify-center space-y-6 p-6 bg-gradient-to-br
+            from-gray-800 to-black rounded-lg shadow-lg w-auto h-max overflow-y-auto max-md:p-3">
             {/* Loading message */}
             {loading && (
                 <p className="text-xl font-semibold text-gray-500 animate-pulse">
@@ -65,6 +67,7 @@ function Front() {
                 <span className="flex-1">For Further Info</span>
                 <HiArrowNarrowRight className="w-6 h-6" />
             </Link>
+        </div>
         </div>
     );
 }
